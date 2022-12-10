@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+</head>
+<style>
+  .containers {
+
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .card {
+    height: 400px;
+    margin: 10px;
+    padding: 10px;
+    width: 95%;
+  }
+
+  .card-img-top {
+    height: 200px;
+    width: 95%;
+  }
+  .dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  margin-left: -55px;
+
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px ;
+  text-decoration: none;
+  display: block;
+ 
+}
+
+.dropdown a:hover {background-color: #ddd;}
+
+.show {display: block;}
+</style>
+
+<body style="margin: 10px; padding: 10px;">
+ 
+  
+  <% if(message.success){ %>
+    <div class="alert alert-success" role="alert">
+        <%= message.success %>
+    </div>
+    <% } %>
+   
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Wittybrains</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          <a class="nav-link active" aria-current="page" href="/users/list">Information</a>
+          <a class="nav-link active" aria-current="page" href="/contact/forms">Contact Us</a>
+          <a class="nav-link active" aria-current="page" href="/editor">Feedback</a>
+          <a class="nav-link active" aria-current="page" href="/qrcode">Generate QR Code</a>
+
+        </div>
+       
+      </div>
+      <!-- <div>
+        <a href="/login"><button type="button" class="btn btn-primary" > Logout</button></a>
+      </div> -->
+      <!-- <img src="/images/uploaded_images/image-1669638415707.png" alt="hi" width="70" height="50" style="padding:5px ;">
+       -->
+      <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">Settings</button>
+        <div id="myDropdown" class="dropdown-content">
+          <a href="/resetpass"><i class="fas fa-lock" style="padding: 1px;">Change Password </i></a>
+          <a href="/login"><i class="fas fa-arrow-right" style="padding: 1px;">Logout</i></a>
+          <a href="#contact">Contact</a>
+        </div>
+       
+      </div> 
+
+
+    </div>
+  </nav>
+<h1 style="text-align: center;color: #2868c7;"> Welcome <%= title %></h1>
+  <div class="containers">
+    <div class="card" style="width: 18rem; float: left; margin-left: 320px;">
+      <img
+        src="data:image/jpeg;base64,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"
+        class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">User Information</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="/users/list" class="btn btn-primary">User Information</a>
+      </div>
+    </div>
+    <div class="card" style="width: 18rem; ">
+      <img
+        src="data:image/png;base64,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"
+        class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Add User </h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+          content.</p>
+        <a href="/create/form" class="btn btn-primary">Add User</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!--Footer-->
+  <!-- Footer -->
+  <footer class="text-center text-lg-start bg-light text-muted" style="margin-top: 100px;width:98%;">
+    
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Wittybrains Software Technologies Private Limited
+            </h6>
+            <p>
+              Wittybrains provides software consulting in niche areas to customer who are in need of highly skilled
+              talent, with timely and quality deliverables.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="#!" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i> Noida</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              info@example.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2022 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Wittybrains</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+
+</html>
+<script>
+  function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>

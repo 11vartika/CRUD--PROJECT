@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Email in NodeJs</title>
+
+</head>
+<style>
+    * {
+        margin: 0;
+    }
+
+    .container {
+        box-sizing: border-box;
+
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        top: 0px;
+    }
+
+    h4 {
+        position: absolute;
+        top: 10px;
+        font-size: 22px;
+        ;
+    }
+   
+
+    .fluid {
+        background-color: white;
+        margin-top: 90px;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 10px 10px 61px 0px rgba(0, 0, 0, 0.75);
+    }
+    h3 {
+        position: absolute;
+        top: 510px;
+        font-size: 22px;
+        ;
+    }
+    .input {
+        padding: 5px;
+        margin: 2px;
+        width: 400px;
+
+
+    }
+
+    .input:focus {
+        width: 306px;
+        border-color: blueviolet;
+        box-shadow: 10px 10px 61px 0px rgba(0, 0, 0, 0.75);
+    }
+
+    .message {
+        position: relative;
+        background-color: orange;
+        width: 380px;
+        padding: 14px;
+        margin: 5px;
+        border-radius: 20px;
+        top: -180px;
+    }
+    .btn{
+        margin-top: 30px;
+    }
+    .table{
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+        <h4>Send email in Nodejs using nodemailer</h6>
+            <div class="fluid">
+                <form action="/email/emailing" method="POST">
+                    <label>From:</label>
+                    <input type="email" name="email" id="email" placeholder="type email-id" required class="input"
+                       ><br>
+                    <label>To:</label>
+                    <input type="email" name="email2" id="email2" placeholder="type email-id" required class="input"
+                       ><br>
+                    <label>Subject:</label>
+                    <input type="text" name="subject" id="subject" placeholder="type subject here" required
+                        class="input"><br>
+                      
+                        <div class="form-row">
+                            <div class="form-group col-md-4" style="margin-bottom: 5px;">
+                              <label><b>First Name</b></label>
+                              <input type="text" placeholder="Enter user Name" class="form-control" name="first_name" id="first_name"
+                               >
+                            </div>
+                            <div class="form-group col-md-4" style="margin-bottom: 5px;">
+                              <label><b>Last Name</b></label>
+                              <input type="text" placeholder="Enter Email Name" class="form-control" name="last_name" id="last_name"
+                                >
+                            </div>
+                            <div class="form-group col-md-4" style="margin-bottom: 5px;">
+                              <label><b> Gender</b></label><br>
+                              <input type="text" class="form-control" placeholder="Enter Address" name="gender" id="gender"
+                               >
+                            </div>
+                            <div class="form-group col-md-4" style="margin-bottom: 5px;">
+                                <label><b> Email Requested Id</b></label><br>
+                                <input type="text" class="form-control" placeholder="Enter Address" name="requested" id="requested"
+                                 >
+                              </div>
+                              <div class="form-group col-md-4" style="margin-bottom: 5px;">
+                                <label><b> Sponsor</b></label><br>
+                                <input type="text" class="form-control" placeholder="Enter Address" name="sponsor" id="sponsor"
+                                 >
+                              </div>
+                              <div class="form-group col-md-4" style="margin-bottom: 5px;">
+                                <label><b> Status</b></label><br>
+                                <input type="text" class="form-control" placeholder="Enter Address" name="status" id="status"
+                                 >
+                              </div>
+                  
+                       
+                                                         
+                <button type="submit" id="btn" class="btn btn-primary">Send</button>
+               
+            </div>
+</body>
+
+</html>

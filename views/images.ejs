@@ -1,0 +1,62 @@
+<form action="/images/uploading" enctype="multipart/form-data" method="post" >
+    <div class="form-row">
+        <div class="form-group col-md-4" style="margin-bottom: 5px;">
+            <label><b>First Name</b></label>
+            <input type="text" placeholder="Enter First Name" class="form-control" name="user_name" id="user_name"
+                autocomplete="off">
+        </div>
+        <div class="form-group col-md-4" style="margin-bottom: 5px;">
+            <label><b>Last Name</b></label>
+            <input type="text" placeholder="Enter Last Name" class="form-control" name="user_pass" id="user_pass"
+                autocomplete="off">
+        </div>
+    
+      
+    </div>
+    <div class="col-2" style="text-align: center;">
+        <div class="input-group">
+            <b><label class="label" name="nri" id="nri">IS NRI</label></b>
+            <div class="p-t-10">
+                <label class="radio-container m-r-45" style="margin-left: 10px;">YES
+                    <input type="radio" name= "nri" value="0" id="yes" onclick="text(0)"/>
+                    <span class="checkmark"></span>
+                </label>
+    
+                <label class="radio-container m-r-45">NO
+                    <input type="radio" name= "nri" value="1" id="no" onclick="text(1)" checked/>
+                    <span class="checkmark"></span>
+                </label>
+    
+            </div>
+    
+        </div >
+    
+       </div> 
+  <fieldset  id="myFieldset">
+<div class="form-row" style="margin-top: 0px;"  >
+    <div class="form-group col-md-4" style="margin-bottom: 5px;">
+        <label><b> Address</b></label><br>
+        <input type="text" class="form-control" placeholder="Enter Address" name="address" id="address"
+            autocomplete="off" >
+    </div>
+   
+    <div class="form-group col-md-4" style="margin-bottom: 5px;">
+        <label><b>Postal Code</b></label><br>
+        <input type="number" placeholder="Enter Postal Code" class="form-control" name="postal" id="postal"
+            autocomplete="off">
+    </div>
+   
+</div>
+
+</fieldset>
+<div class="form-group">
+<label for="mob_no" class="col-md-3 control-label"><b>Profile Image</b></label>
+<div class="form-group col-md-4">
+    <input class="form-control" type="file" name="image" accept=""/>
+   
+</div>
+</div> 
+
+    <br>
+    <button type="submit" id="btn" class="btn btn-primary">Create User</button>
+</form>
